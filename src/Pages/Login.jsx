@@ -33,10 +33,10 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
 
-        // if (!user?.emailVerified) {
-        //   toast.warn("Your email is not verified!!");
-        //   return;
-        // }
+        if (!user?.emailVerified) {
+          toast.warn("Your email is not verified!!");
+          return;
+        }
 
         setUser(user);
         navigate(`${location.state ? location.state : "/"}`);
